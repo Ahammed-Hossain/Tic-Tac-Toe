@@ -38,34 +38,27 @@ function checkWin() {
 
             msgText.innerText = `🎉 Congratulation Player ${winner} Wins! 🎉`;
             disableBoxes();
-            msgContainer.classList.remove("hide"); // winner পাওয়া গেলে message show করো
+            // msgContainer.classList.remove("hide"); // winner পাওয়া গেলে message show করো
             // winner হলে box বন্ধ
             return; // winner পাওয়া গেলে loop আর চালাবো না
         }
     }
-}
-
-// সব box disable করো
+};
 function disableBoxes() {
-    box.forEach((boxs) => {
-        boxs.disabled = true; // box disable করে দাও
-        boxs.style.pointerEvents = "none"; // pointer events বন্ধ করে দাও
-    });
-}
+  box.forEach(b => b.disabled = true);
+};
 
-// সব box enable করো (reset/new game এর সময়)
 function enableBoxes() {
-    box.forEach((b) => {
-        b.innerText = "";
-        b.style.pointerEvents = "auto";
-    });
-}
-
+  box.forEach(b => {
+    b.innerText = "";
+    b.disabled = false;
+  });
+};
 let reset = document.querySelector(".resetBtn");
 reset.addEventListener("click", () => {
     enableBoxes();
     curentPlayer = "X";
-    msgContainer.classList.add("hide");
+    // msgContainer.classList.add("hide");
     console.log("Game Reset");
 });
 
@@ -73,6 +66,6 @@ let newGame = document.querySelector(".new-Game");
 newGame.addEventListener("click", () => {
     enableBoxes();
     curentPlayer = "X";
-    msgContainer.classList.add("hide");
+    // msgContainer.classList.add("hide");
     console.log("New Game Started");
 });
