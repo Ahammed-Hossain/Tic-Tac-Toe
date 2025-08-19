@@ -37,9 +37,9 @@ function checkWin() {
             console.log("Winner: " + winner);
 
             msgText.innerText = `🎉 Congratulation Player ${winner} Wins! 🎉`;
-            msgContainer.classList.remove("hide");
-
-            disableBoxes(); // winner হলে box বন্ধ
+            disableBoxes();
+            msgContainer.classList.remove("hide"); // winner পাওয়া গেলে message show করো
+            // winner হলে box বন্ধ
             return; // winner পাওয়া গেলে loop আর চালাবো না
         }
     }
