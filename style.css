@@ -1,0 +1,94 @@
+* {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: rgb(231 204 119);
+    }
+
+    .firstContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 50px 10px 30px 10px;
+    }
+
+    .msg {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color: rgb(255, 255, 255);
+    }
+
+    .newBtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 75vh;
+    }
+
+    .new-Game {
+      padding: 20px 30px 20px 30px;
+      border: none;
+      border-radius: 10px;
+      background-color: rgb(21, 76, 179);
+      color: white;
+      font-size: 25px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      cursor: pointer;
+    }
+
+    .allBoxes {
+      height: 70vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mainContainer {
+      height: 60vmin;
+      width: 60vmin;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+
+    .boxs {
+      height: 18vmin;
+      width: 18vmin;
+      background-color: rgb(0 107 115);
+      font-size: 50px;
+      color: rgb(255, 255, 255);
+      text-align: center;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+
+    }
+
+    .lastBtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    .resetBtn {
+      padding: 20px 30px 20px 30px;
+      border: none;
+      border-radius: 10px;
+      background-color: rgb(21, 76, 179);
+      color: white;
+      font-size: 25px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      margin-bottom: 50px;
+      margin-top: 30px;
+      cursor: pointer;
+    }
+
+    .hide {
+      display: none;
+    }
