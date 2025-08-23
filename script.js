@@ -1,5 +1,5 @@
 let box = document.querySelectorAll(".boxs");
-let msgContainer = document.querySelector(".main-Container");
+let msgContainer = document.querySelector(".msg-Container");
 let msgText = document.querySelector(".msg"); // message show করার জন্য একটা আলাদা element নাও
 
 let curentPlayer = "X";
@@ -22,33 +22,38 @@ box.forEach((boxs) => {
             curentPlayer = curentPlayer === "X" ? "O" : "X";
         }
         checkWin();
+        checkDraw();
     });
 });
 
-function checkWin() {
-    for (let method of winMethods) {   // forEach এর জায়গায় for-of ব্যবহার করলাম
-        let [a, b, c] = method;
-        if (
-            box[a].innerText &&
-            box[a].innerText === box[b].innerText &&
-            box[a].innerText === box[c].innerText
-        ) {
-            let winner = box[a].innerText;
-            console.log("Winner: " + winner);
-
-            msgText.innerText = `🎉 Congratulation Player ${winner} Wins! 🎉`;
-            disableBoxes();
-            // msgContainer.classList.remove("hide"); // winner পাওয়া গেলে message show করো
-            // winner হলে box বন্ধ
-            return; // winner পাওয়া গেলে loop আর চালাবো না
-        }
-    }
+let checkWin = () => {
+    for(method of winMethods) {
+        let pos1 = box[method[0]].innerText;
+        let pos2 = box[method[1]].innerText;
+        let pos3 = box[method[2]].innerText;
+        if (pos1 != "" && pos2 != "" && pos3 != "") {
+            if (pos1 === pos2 && pos2 === pos3) {
+                msgContainer.classList.remove("hide");
+                msgText.innerText = `Congratulation player ${pos1} is Winner.`;
+                disableBoxes();
+            };
+        };
+    };
 };
-function disableBoxes() {
+
+function checkDraw() {
+    
+        if ([...box].every(box => box.innerText !== '')) {
+                msgContainer.classList.remove("hide");
+                msgText.innerText = `Its a Draw`;
+            };
+    };
+
+disableBoxes = () => {
   box.forEach(b => b.disabled = true);
 };
 
-function enableBoxes() {
+enableBoxes = () => {
   box.forEach(b => {
     b.innerText = "";
     b.disabled = false;
@@ -58,14 +63,14 @@ let reset = document.querySelector(".resetBtn");
 reset.addEventListener("click", () => {
     enableBoxes();
     curentPlayer = "X";
-    // msgContainer.classList.add("hide");
-    console.log("Game Reset");
+    msgContainer.classList.add("hide");
 });
 
 let newGame = document.querySelector(".new-Game");
 newGame.addEventListener("click", () => {
     enableBoxes();
     curentPlayer = "X";
-    // msgContainer.classList.add("hide");
-    console.log("New Game Started");
+    msgContainer.classList.add("hide");
 });
+
+// Add event listener to close the message container
